@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   body{
+    background-color: rgba(0, 255, 255, 0.534);
+   }
+    #main{
+        width: 300px;
+        height: 320px;
+        border: 3px solid green;
+        margin-top: 100px;
+        background-color: aliceblue;
+    }
+    #head{
+    color:black;
+    text-shadow: 4px 4px 8px red;
+  font-size: 1.7rem;
+    }
+   
+</style>
+<body>
+   <center> 
+    <div id="main"><p><b id="head">Celcius Convert To Fahrenheit</b></p>
+     <input type="number" id="temperature"  placeholder="Enter temperature" >
+     <button onclick="convert()">convert in F</button>
+<h1 id="ans"></h1>
+
+  <input type="number" id="temperature2"  placeholder="Enter temperature" >
+     <button onclick="convert2()">convert in C </button>
+<h1 id="ans2"></h1>
+
+
+</div></center>
+<script>
+    function convert(){
+        var c=document.getElementById('temperature').value;
+        var f= (c*9/5)+32;
+        document.getElementById('ans').innerHTML= `${c}C = ${f}F`
+    }
+    function convert2(){
+        var f=document.getElementById('temperature2').value;
+        var cel= (f-32)*5/9;
+        document.getElementById('ans2').innerHTML= `${f}F = ${cel}C`
+    }
+</script>
+</body>
+</html>
