@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer clock</title>
+</head>
+<!-- <body>
+    <center> <h1>alarm clock</h1>
+    <div id="presentTime"></div>
+   <button for="time">Set alarm for:</button><br><br>
+      <input type="time" id="time"><br><br>
+      <button type="button" onclick="setAlarm()">set alarm</button>
+
+   </center>
+    <p id="alarm-message"></p>
+    <script>
+
+      var alarmOff;
+  
+      function setAlarm() {
+        var inputTime = document.getElementById("time").value;
+  
+        alarmOff = setInterval(function () {
+          checkAlarm(inputTime);
+        }, 1000); 
+      }
+      function checkAlarm(inputTime) {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var formattedCurrentTime = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes ;
+        if (formattedCurrentTime === inputTime) {
+          alert("Time to wake up!");
+          clearInterval(alarmOff); // Clear the interval once the alarm is triggered//
+        }
+      }
+    </script>
+  </body> -->
+
+  <body>
+    <center>
+      <h1>Alarm Clock</h1>
+      <div id="presentTime"></div>
+      <button for="time">Set alarm for:</button><br><br>
+      <input type="time" id="time"><br><br>
+      <button type="button" onclick="setAlarm()">Set Alarm</button>
+    </center>
+    <p id="alarm-message"></p>
+  
+    <script>
+      var alarmOff;
+  
+      function setAlarm() {
+        var inputTime = document.getElementById("time").value;
+  
+        updateCurrentTime();
+  
+        setInterval(updateCurrentTime, 1000);
+  
+        alarmOff = setInterval(function () {
+          checkAlarm(inputTime);
+        }, 1000);
+      }
+  
+      function updateCurrentTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var formattedCurrentTime = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        document.getElementById("presentTime").innerText = "Current Time: " + formattedCurrentTime;
+      }
+  
+      function checkAlarm(inputTime) {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var formattedCurrentTime = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes;
+        if (formattedCurrentTime === inputTime) {
+          alert("Time to wake up!");
+          clearInterval(alarmOff); 
+        }
+      }
+    </script>
+  </body>
+</html>
